@@ -11,15 +11,11 @@ class CollectionViewCell: UICollectionViewCell {
 
     static let identifier = "CollectionViewCell"
 
-    // MARK: - Configure Cell
-
     func configure(with model: ItemOption) {
         profileImageView.image = UIImage(named: model.imageName)
         name.text = model.name
         number.text = String(model.number)
     }
-
-    // MARK: - Elements
 
      let profileImageView: UIImageView = {
          let imageView = UIImageView()
@@ -50,11 +46,8 @@ class CollectionViewCell: UICollectionViewCell {
         return view
     }()
 
-    // MARK: - Init
-
     override init(frame: CGRect) {
         super.init(frame: .zero)
-
         setupViews()
         setupLayouts()
     }
@@ -63,11 +56,8 @@ class CollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) - fatalError")
     }
 
-    // MARK: - Settings
-
     private func setupViews() {
         contentView.clipsToBounds = true
-
         contentView.addSubview(profileImageView)
         contentView.addSubview(name)
         contentView.addSubview(number)
@@ -75,25 +65,23 @@ class CollectionViewCell: UICollectionViewCell {
     }
 
     private func setupLayouts() {
-
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
         name.translatesAutoresizingMaskIntoConstraints = false
         number.translatesAutoresizingMaskIntoConstraints = false
         selectView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-
             profileImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             profileImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             profileImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             profileImageView.heightAnchor.constraint(equalTo: profileImageView.widthAnchor),
-
+            
             name.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            name.topAnchor.constraint(equalTo: profileImageView.bottomAnchor,constant: 10),
-
+            name.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 10),
+            
             number.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             number.topAnchor.constraint(equalTo: name.bottomAnchor),
-
+            
             selectView.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor),
             selectView.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor),
             selectView.topAnchor.constraint(equalTo: profileImageView.topAnchor),

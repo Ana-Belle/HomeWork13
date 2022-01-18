@@ -11,8 +11,6 @@ class TableCollectionViewCell: UICollectionViewCell {
 
     static let identifier = "TableCollectionViewCell"
 
-    // MARK: - Elements
-
     public let iconContainer: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
@@ -24,7 +22,6 @@ class TableCollectionViewCell: UICollectionViewCell {
         imageView.tintColor = .systemBlue
         imageView.backgroundColor = .clear
         imageView.contentMode = .scaleAspectFit
-
         return imageView
     }()
 
@@ -39,7 +36,6 @@ class TableCollectionViewCell: UICollectionViewCell {
         imageView.tintColor = .systemGray
         imageView.backgroundColor = .clear
         imageView.contentMode = .scaleAspectFit
-
         return imageView
     }()
 
@@ -48,7 +44,6 @@ class TableCollectionViewCell: UICollectionViewCell {
         label.textColor = .systemBlue
         label.font = .systemFont(ofSize: 22)
         label.numberOfLines = 1
-
         return label
     }()
 
@@ -64,8 +59,6 @@ class TableCollectionViewCell: UICollectionViewCell {
         return view
     }()
 
-    // MARK: - Init
-
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setupHierarchy()
@@ -75,8 +68,6 @@ class TableCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError()
     }
-
-    // MARK: - Settings
 
     private func setupHierarchy() {
         contentView.addSubview(label)
@@ -102,36 +93,36 @@ class TableCollectionViewCell: UICollectionViewCell {
         stripeView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-        label.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
-        label.leadingAnchor.constraint(equalTo: iconContainer.trailingAnchor, constant: -5),
-        label.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            label.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            label.leadingAnchor.constraint(equalTo: iconContainer.trailingAnchor, constant: -5),
+            label.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
 
-        iconContainer.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
-        iconContainer.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8),
-        iconContainer.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor),
-        iconContainer.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor),
+            iconContainer.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            iconContainer.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            iconContainer.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor),
+            iconContainer.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor),
 
-        iconImageView.centerYAnchor.constraint(equalTo: iconContainer.centerYAnchor),
-        iconImageView.widthAnchor.constraint(equalTo: iconContainer.widthAnchor, constant: -24),
-        iconImageView.heightAnchor.constraint(equalTo: iconContainer.heightAnchor, constant: -24),
+            iconImageView.centerYAnchor.constraint(equalTo: iconContainer.centerYAnchor),
+            iconImageView.widthAnchor.constraint(equalTo: iconContainer.widthAnchor, constant: -24),
+            iconImageView.heightAnchor.constraint(equalTo: iconContainer.heightAnchor, constant: -24),
 
-        arrawContainer.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
-        arrawContainer.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
-        arrawContainer.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor),
-        arrawContainer.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor),
+            arrawContainer.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            arrawContainer.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            arrawContainer.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor),
+            arrawContainer.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor),
 
-        arrawImageView.centerYAnchor.constraint(equalTo: arrawContainer.centerYAnchor),
-        arrawImageView.trailingAnchor.constraint(equalTo: arrawContainer.trailingAnchor, constant: -8),
-        arrawImageView.widthAnchor.constraint(equalTo: arrawContainer.widthAnchor, constant: -34),
-        arrawImageView.heightAnchor.constraint(equalTo: arrawContainer.widthAnchor, constant: -34),
+            arrawImageView.centerYAnchor.constraint(equalTo: arrawContainer.centerYAnchor),
+            arrawImageView.trailingAnchor.constraint(equalTo: arrawContainer.trailingAnchor, constant: -8),
+            arrawImageView.widthAnchor.constraint(equalTo: arrawContainer.widthAnchor, constant: -34),
+            arrawImageView.heightAnchor.constraint(equalTo: arrawContainer.widthAnchor, constant: -34),
 
-        labelLeft.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
-        labelLeft.trailingAnchor.constraint(equalTo: arrawImageView.leadingAnchor, constant: -5),
+            labelLeft.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            labelLeft.trailingAnchor.constraint(equalTo: arrawImageView.leadingAnchor, constant: -5),
 
-        stripeView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10),
-        stripeView.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: 1000),
-        stripeView.leadingAnchor.constraint(equalTo: label.leadingAnchor),
-        stripeView.heightAnchor.constraint(equalToConstant: 1)
+            stripeView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10),
+            stripeView.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: 1000),
+            stripeView.leadingAnchor.constraint(equalTo: label.leadingAnchor),
+            stripeView.heightAnchor.constraint(equalToConstant: 1)
         ])
     }
 
@@ -141,12 +132,8 @@ class TableCollectionViewCell: UICollectionViewCell {
         iconImageView.image = nil
         labelLeft.text = nil
         arrawImageView.image = nil
-
         stripeView.backgroundColor = .systemGray4
-
     }
-
-    // MARK: - Configure cell
 
     func configure(with model: TableOption) {
         label.text = model.title
