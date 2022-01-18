@@ -1,0 +1,95 @@
+//
+//  CollectionViewCell.swift
+//  HomeWork13
+//
+//  Created by Anastasia Belyakova on 10.01.2022.
+//
+
+import UIKit
+
+class CollectionViewCell: UICollectionViewCell {
+
+    static let identifier = "CollectionViewCell"
+
+    func configure(with model: ItemOption) {
+        profileImageView.image = UIImage(named: model.imageName)
+        name.text = model.name
+        number.text = String(model.number)
+    }
+
+     let profileImageView: UIImageView = {
+         let imageView = UIImageView()
+         imageView.layer.masksToBounds = true
+         imageView.layer.cornerRadius = 6
+         imageView.backgroundColor = .clear
+         return imageView
+    }()
+
+    let name: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.font = .systemFont(ofSize: 14)
+        return label
+    }()
+
+    let number: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.textColor = .darkGray
+        label.font = .systemFont(ofSize: 14)
+        return label
+    }()
+
+    private let selectView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 6
+        return view
+    }()
+
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+        setupViews()
+        setupLayouts()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) - fatalError")
+    }
+
+    private func setupViews() {
+        contentView.clipsToBounds = true
+        contentView.addSubview(profileImageView)
+        contentView.addSubview(name)
+        contentView.addSubview(number)
+        contentView.addSubview(selectView)
+    }
+
+    private func setupLayouts() {
+        profileImageView.translatesAutoresizingMaskIntoConstraints = false
+        name.translatesAutoresizingMaskIntoConstraints = false
+        number.translatesAutoresizingMaskIntoConstraints = false
+        selectView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            profileImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            profileImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            profileImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            profileImageView.heightAnchor.constraint(equalTo: profileImageView.widthAnchor),
+            
+            name.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            name.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 10),
+            
+            number.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            number.topAnchor.constraint(equalTo: name.bottomAnchor),
+            
+            selectView.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor),
+            selectView.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor),
+            selectView.topAnchor.constraint(equalTo: profileImageView.topAnchor),
+            selectView.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor)
+        ])
+    }
+
+    func changeSelect(color: UIColor?) {
+        selectView.backgroundColor = color
+    }
+}
